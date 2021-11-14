@@ -568,12 +568,15 @@ Run ```sanity init plugin```in the studio folder and choose "A Dashboard with ca
 Add ``` {name: 'cats',  layout: {width: 'full'}},``` to dashboardConfig.js
 
 ### Step 10. Change the UI of Sanity Studio
-From the studio folder run ```sanity install hotdog-stand```` and restart the studio from terminal
+From the studio folder run ```sanity install hotdog-stand``` and restart the studio from terminal
 
 ### Step 11. Get content from Sanity to front end
 In a browser navigate to https://localhost:3000/dempPage/[slug]
 Go to the Web/pages/demoPage/[slug].js. In getStaticProps the Sanity Client fetches data from Sanity. 
 Open /Web/lib/queries.js. demoPageQuery uses GROQ to fetch data from Sanity
+
+### Step 12. Deploy to vercel
+Run ```npm i -g vercel``` and ```vercel link``` from the web folder
 
 
 
