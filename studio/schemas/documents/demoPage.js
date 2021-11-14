@@ -4,18 +4,12 @@ export default {
     name: 'demoPage',
     type: 'document',
     title: 'Demo Page',
-    icon: () => '🤩',
+   // icon: () => '🤩',
     fields: [
         {
           name: 'title',
           type: 'string',
           title: 'Title',
-        },
-        {
-          name: 'subTitle',
-          type: 'string',
-          title: 'Sub Title',
-          hidden: ({document}) => !document?.title,
         },
         {
           title: 'Slug',
@@ -28,10 +22,10 @@ export default {
           }
         },
         {
-          title: 'Launch Scheduled At',
-          name: 'launchAt',
+          title: 'Publish Date',
+          name: 'date',
           type: 'datetime',
-         initialValue: (new Date()).toISOString()
+          initialValue: (new Date()).toISOString()
         },
         {
           title: 'Poster',
@@ -57,10 +51,10 @@ export default {
           ]
         },
         {
-          title: 'Related post',
-          name: 'relatedPost',
+          title: 'Author',
+          name: 'author',
           type: 'reference',
-          to: [{type: 'post'}]
+          to: [{type: 'author'}]
         },
         {
           title: 'Multiple related posts',
@@ -102,7 +96,7 @@ export default {
           ]
         },
         {
-          title: 'Launchpad Location',
+          title: 'Location',
           name: 'location',
           type: 'geopoint'
         },
@@ -111,7 +105,6 @@ export default {
           title: 'This is a cool custom string',
           type: 'string',
           inputComponent: CustomString
-
         },
         {
           name: 'stringWithLimit',
@@ -119,17 +112,13 @@ export default {
           type: 'string',
           inputComponent: StringWithLimits,
           validation: Rule => Rule.max(10)
-
         },
-
-
-
     ],
-    // preview: {
-    //   select: {
-    //     title: 'title',
-    //     subtitle: 'subTitle',
-    //     media: 'poster'
-    //   }
-    // }
+    preview: {
+      select: {
+        title: 'title',
+        subtitle: 'author.name',
+        media: 'poster'
+      }
+    }
 }
