@@ -1,4 +1,7 @@
+# If you want to code along, please complete step 1 to 6 before the workshop
 ## Configuration
+
+
 
 ### Step 1. Create an account and a project on Sanity
 
