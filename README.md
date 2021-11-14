@@ -1,6 +1,5 @@
 ## Configuration
 
-
 ### Step 1. Create an account and a project on Sanity
 
 First, [create an account on Sanity](https://sanity.io).
@@ -245,6 +244,8 @@ export default {
   }
 }
 ```
+
+Add the following Youtube video to the document: https://www.youtube.com/watch?v=2ceM_tSus_M&t=5s
 
 #### Add a location property
 ```
@@ -537,7 +538,42 @@ export default {
       ),
 ```
 
+### Step 9. Add a dashboard to the studio
+#### Enable dashboards
+Add ```{
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
+    },``` to the parts list and ``` "@sanity/dashboard",```to the plugins list in sanity.json 
 
+Create the dashboardConfig.js
+
+``` 
+export default {
+  widgets: [
+   
+    {name: 'structure-menu'},
+    {name: 'project-users', layout: {height: 'auto', widht:'medium'}},
+    {
+      name: 'document-list',
+      options: {title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['post']},
+      layout: {width: 'medium'}
+    }
+  ]
+}
+```
+And finally restart the studio from terminal
+
+#### Add a widget to the dashboard
+Run ```sanity init plugin```in the studio folder and choose "A Dashboard with cats" and accept all default values
+Add ``` {name: 'cats',  layout: {width: 'full'}},``` to dashboardConfig.js
+
+### Step 10. Change the UI of Sanity Studio
+From the studio folder run ```sanity install hotdog-stand```` and restart the studio from terminal
+
+### Step 11. Get content from Sanity to front end
+In a browser navigate to https://localhost:3000/dempPage/[slug]
+Go to the Web/pages/demoPage/[slug].js. In getStaticProps the Sanity Client fetches data from Sanity. 
+Open /Web/lib/queries.js. demoPageQuery uses GROQ to fetch data from Sanity
 
 
 
