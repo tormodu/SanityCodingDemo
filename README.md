@@ -42,28 +42,10 @@ SANITY_API_TOKEN=...
 SANITY_PREVIEW_SECRET=...
 ```
 
-### Step 5. Prepare project for previewing
 
-Go to https://www.sanity.io/docs/preview-content-on-site and follow the three steps on that page. It should be done inside the studio project generated in Step 2.
 
-When you get to the second step about creating a file called `resolveProductionUrl.js`, copy the following instead:
 
-```js
-const previewSecret = 'MY_SECRET' // Copy the string you used for SANITY_PREVIEW_SECRET
-const projectUrl = 'http://localhost:3000'
-
-export default function resolveProductionUrl(document) {
-  return `${projectUrl}/api/preview?secret=${previewSecret}&slug=${document.slug.current}`
-}
-```
-
-### Step 6. Copy the schema file
-
-After initializing your Sanity studio project there should be a `schemas` folder.
-
-Replace the contents of `schema.js` in the Sanity studio project directory with [`./schemas/schema.js`](./schemas/schema.js) in this example directory. This will set up the schema we’ll use this for this example.
-
-### Step 7. Populate Content
+### Step 5. Populate Content
 
 To add some content go to your Sanity studio project directory and run `sanity start`.
 
@@ -83,15 +65,13 @@ Next, select **Post** and create a new record.
 
 **Important:** For each post record, you need to click **Publish** after saving. If not, the post will be in the draft state.
 
-### Step 8. Run Next.js in development mode
+### Step 6. Run Next.js in development mode
 
 ```bash
 npm install
-npm run dev
+npm run 
 
-# or
+### Step 7. Start building the Demo Page
 
-yarn install
-yarn dev
-```
+
 
