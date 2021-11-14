@@ -576,7 +576,17 @@ Go to the Web/pages/demoPage/[slug].js. In getStaticProps the Sanity Client fetc
 Open /Web/lib/queries.js. demoPageQuery uses GROQ to fetch data from Sanity
 
 ### Step 12. Deploy to vercel
-Run ```npm i -g vercel``` and ```vercel link``` from the web folder
+- Go to Vercel account and click "New Project"
+- import the project from Github.
+- Skip "Create team"
+- Choose web as root directory
+
+Set up environment variables for
+- SANITY_PREVIEW_SECRET 
+- SANITY_API_TOKEN
+- NEXT_PUBLIC_SANITY_DATASET
+- NEXT_PUBLIC_SANITY_PROJECT_ID
+
 
 
 
