@@ -7,6 +7,7 @@ export default {
       name: 'document-list',
       options: {title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['post']},
       layout: {width: 'medium'}
-    }
+    },
+    {name: 'cats',  layout: {width: 'full'}},
   ]
 }

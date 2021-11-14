@@ -20,9 +20,9 @@
     "dashboard-widget-document-list",
     "leaflet-input",
     "media",
-"asset-source-unsplash",
-    "iframe-pane"
-
+    "asset-source-unsplash",
+    "iframe-pane",
+    "my-dashboard-widget"
   ],
   "env": {
     "development": {
