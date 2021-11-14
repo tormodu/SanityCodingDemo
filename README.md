@@ -1,7 +1,7 @@
 ## Configuration
 
 ### Step 7. Start building the Demo Page
-#### Add a title 
+#### Add a title to the document
 #### Add the proprty for slug
 ```
   {
@@ -63,6 +63,121 @@ fields: [
   }
 ]
 ```
+#### Add a reference to the author document type
+
+```
+{
+  title: 'Author',
+  name: 'author',
+  type: 'reference',
+  to: [{type: 'author'}]
+},
+```
+
+#### Add references to multiple post documents
+
+```
+{
+  title: 'Multiple related posts',
+  name: 'relatedPosts',
+  type: 'array',
+  of: [
+    {
+      type: 'reference',
+      to: [
+        {type: 'post'}
+      ]
+    }
+  ]
+},
+```
+
+#### Add portable text
+
+```
+{
+  name: 'content',
+  title: 'Content',
+  type: 'array',
+  of: [
+    {
+      type: 'block'
+    },
+  ]
+},
+```
+
+#### Add an image to the portable text
+```
+{
+  type: 'image',
+  fields: [
+    {
+      type: 'text',
+      name: 'alt',
+      title: 'Alternative text',
+      options: {
+        isHighlighted: true
+      }
+    }
+  ]
+}
+```
+
+#### Add a YouTube video to the portable text
+
+```
+ {
+   type: 'youtube'
+ },
+```
+Create a youtube object type
+```
+import React from 'react'
+import getYouTubeId from 'get-youtube-id'
+import YouTube from 'react-youtube'
+
+const Preview = ({value}) => {
+	const { url } = value
+	const id = getYouTubeId(url)
+	return (<YouTube videoId={id} />)
+}
+
+export default {
+  name: 'youtube',
+  type: 'object',
+  title: 'YouTubefilm',
+  fields: [
+    {
+      name: 'url',
+      type: 'url',
+      title: 'YouTube video URL'
+    },
+    {
+      name: 'videoLabel',
+      type: 'string',
+      title: 'Descriptive video title'
+    }
+  ],
+  preview: {
+  	select: {
+  		url: 'url'
+  	},
+  	component: Preview
+  }
+}
+```
+
+#### Add a location property
+```
+{
+  title: 'Location',
+  name: 'location',
+  type: 'geopoint'
+ },
+ ```
+ 
+
  
 ### Step 1. Create an account and a project on Sanity
 
