@@ -50,21 +50,7 @@ export default () =>
         .icon(MdAccountCircle)
         .schemaType("author")
         .child(S.documentTypeList("author").title("Authors")),
-      // S.listItem()
-      //   .title("Posts by author")
-      //   .icon(MdGroup)
-      //   .child(
-      //     S.documentTypeList("author")
-      //       .title("Posts by author")
-      //       .child(
-      //         (_id) =>
-      //           S.documentList("post")
-      //             .schemaType("post")
-      //             .title("Posts by author")
-      //             .filter('_type == "post" && author._ref == $_id')
-      //             .params({ _id })
-      //       )
-      //   ),
+     
 
       ...S.documentTypeListItems().filter(hiddenDocTypes),
     ]);

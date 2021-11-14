@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "nextpreview"
+    "name": "SanityCodingDemo"
   },
   "api": {
     "projectId": "ci94q5up",
@@ -15,14 +15,9 @@
     "@sanity/desk-tool",
     "@sanity/production-preview",
     "seo-pane",
-    "@sanity/dashboard",
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
-    "leaflet-input",
-    "media",
-    "asset-source-unsplash",
-    "iframe-pane",
-    "my-dashboard-widget"
+    "iframe-pane"
   ],
   "env": {
     "development": {
@@ -39,10 +34,6 @@
     {
       "implements": "part:@sanity/desk-tool/structure",
       "path": "./deskStructure.js"
-    },
-    {
-      "implements": "part:@sanity/dashboard/config",
-      "path": "./dashboardConfig.js"
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",

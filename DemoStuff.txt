@@ -1,8 +1,0 @@
-    "leaflet-input",
-    "media",
-    "asset-source-unsplash",
-
-
-https://www.youtube.com/watch?v=2ceM_tSus_M&t=5s
-
-sanity init plugin
