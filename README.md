@@ -1,5 +1,69 @@
 ## Configuration
 
+### Step 7. Start building the Demo Page
+#### Add a title 
+#### Add the proprty for slug
+```
+  {
+  title: 'Slug',
+  name: 'slug',
+  type: 'slug',
+  options: {
+    source: 'title',
+    maxLength: 200
+  }
+ },
+ ```
+ #### Add the conditional hidden field to the slug. When no title is present the slug should be hidden
+ 
+ ```hidden: ({document}) => !document?.title, ```
+ 
+ #### Add the published date field
+ 
+ ```
+{
+  title: 'Publish Date',
+  name: 'date',
+  type: 'datetime',
+},
+ ```
+ 
+ #### Add an initial value to the published date field
+ 
+``` initialValue: (new Date()).toISOString()```
+
+### Add a poster image field
+
+```
+{
+    title: 'Poster',
+    name: 'poster',
+    type: 'image',
+    options: {
+        hotspot: true
+    },
+},
+```
+#### Add additional fields to the image property
+
+```
+fields: [
+  {
+    name: 'caption',
+    type: 'string',
+    title: 'Caption',
+    options: {
+      isHighlighted: true
+    }
+  },
+  {
+    name: 'attribution',
+    type: 'string',
+    title: 'Attribution',
+  }
+]
+```
+ 
 ### Step 1. Create an account and a project on Sanity
 
 First, [create an account on Sanity](https://sanity.io).
@@ -70,8 +134,8 @@ Next, select **Post** and create a new record.
 ```bash
 npm install
 npm run 
+```
 
-### Step 7. Start building the Demo Page
 
 
 
