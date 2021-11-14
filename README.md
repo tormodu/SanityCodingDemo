@@ -515,6 +515,28 @@ export default {
 }
 ``` 
 
+### Step 8. Customize the desk structure
+
+#### Add a menu for posts by author in deskStructure.js at line 53
+
+```
+ S.listItem()
+   .title("Posts by author")
+   .icon(MdGroup)
+   .child(
+     S.documentTypeList("author")
+       .title("Posts by author")
+       .child(
+         (_id) =>
+           S.documentList("post")
+             .schemaType("post")
+             .title("Posts by author")
+             .filter('_type == "post" && author._ref == $_id')
+             .params({ _id })
+          )
+      ),
+```
+
 
 
 
