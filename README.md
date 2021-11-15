@@ -11,7 +11,7 @@ After creating an account, install the Sanity cli from npm `npm i -g @sanity/cli
 
 ### Step 2. Create a new Sanity project
 
-In a separate folder run `sanity init` to initialize a new studio project.
+In a the studio folder run `sanity init` to initialize a new studio project.
 
 This will be where we manage our data.
 
@@ -76,8 +76,12 @@ npm run
 ```
 
 ### Step 7. Start building the Demo Page
+
+Reference to Sanity schema types: https://www.sanity.io/docs/schema-types
+
 #### Add a title to the document
 #### Add the proprty for slug
+https://www.sanity.io/docs/slug-type
 ```
   {
   title: 'Slug',
@@ -90,10 +94,12 @@ npm run
  },
  ```
  #### Add the conditional hidden field to the slug. When no title is present the slug should be hidden
+ https://www.sanity.io/docs/conditional-fields
  
  ```hidden: ({document}) => !document?.title, ```
  
  #### Add the published date field
+ https://www.sanity.io/docs/datetime-type
  
  ```
 {
@@ -104,10 +110,12 @@ npm run
  ```
  
  #### Add an initial value to the published date field
- 
+https://www.sanity.io/docs/initial-value-templates
+
 ``` initialValue: (new Date()).toISOString()```
 
 ### Add a poster image field
+https://www.sanity.io/docs/image-type
 
 ```
 {
@@ -139,9 +147,13 @@ fields: [
 ]
 ```
  #### Add a media plugins to the studio
+ https://www.sanity.io/plugins/sanity-plugin-media
+ https://www.sanity.io/plugins/sanity-plugin-asset-source-unsplash
+ 
  Add ``` "media"``` and ``` "asset-source-unsplash"``` to the plugin section in sanity.json and restart the studio from terminal
  
 #### Add a reference to the author document type
+https://www.sanity.io/docs/reference-type
 
 ```
 {
@@ -153,6 +165,8 @@ fields: [
 ```
 
 #### Add references to multiple post documents
+https://www.sanity.io/docs/array-type
+https://www.sanity.io/docs/reference-type#f300c56f43d3
 
 ```
 {
@@ -171,6 +185,7 @@ fields: [
 ```
 
 #### Add portable text
+https://www.sanity.io/docs/block-type
 
 ```
 {
@@ -251,6 +266,8 @@ export default {
 Add the following Youtube video to the document: https://www.youtube.com/watch?v=2ceM_tSus_M&t=5s
 
 #### Add a location property
+https://www.sanity.io/docs/geopoint-type
+
 ```
 {
   title: 'Location',
@@ -260,9 +277,13 @@ Add the following Youtube video to the document: https://www.youtube.com/watch?v
  ```
  
  #### Add a map plugin to the studio
+ https://www.sanity.io/plugins/sanity-plugin-leaflet-input
+ 
  Add ``` "leaflet-input"``` to the plugin section in sanity.json and restart the studio from terminal
  
 #### Add a custom string
+https://www.sanity.io/docs/custom-input-widgets
+
 ```
 {
   name: 'customString',
@@ -374,11 +395,13 @@ const StringWithLimits = React.forwardRef((props, ref) => {
 
 export default StringWithLimits
 ```
-#### Add an icon to the docuument type
+#### Add an icon to the document type
+https://www.sanity.io/docs/icons-for-data-types
 
 ``` icon: () => '🤩',```
 
 #### Add a preview to the document type
+https://www.sanity.io/docs/previews-list-views
 
 ```
 preview: {
@@ -520,6 +543,7 @@ export default {
 ``` 
 
 ### Step 8. Customize the desk structure
+https://www.sanity.io/docs/structure-builder-introduction
 
 #### Add a menu for posts by author in deskStructure.js at line 53
 
@@ -542,6 +566,8 @@ export default {
 ```
 
 ### Step 9. Add a dashboard to the studio
+https://www.sanity.io/docs/dashboard
+
 #### Enable dashboards
 Add ```{
       "implements": "part:@sanity/dashboard/config",
@@ -567,18 +593,27 @@ export default {
 And finally restart the studio from terminal
 
 #### Add a widget to the dashboard
+https://www.sanity.io/docs/creating-your-own-widget
+
 Run ```sanity init plugin```in the studio folder and choose "A Dashboard with cats" and accept all default values
 Add ``` {name: 'cats',  layout: {width: 'full'}},``` to dashboardConfig.js
 
 ### Step 10. Change the UI of Sanity Studio
+https://www.sanity.io/docs/styling
+https://www.sanity.io/plugins/sanity-plugin-hotdog-stand
+
 From the studio folder run ```sanity install hotdog-stand``` and restart the studio from terminal
 
 ### Step 11. Get content from Sanity to front end
+https://www.sanity.io/docs/how-queries-work
+
 In a browser navigate to https://localhost:3000/dempPage/[slug]
 Go to the Web/pages/demoPage/[slug].js. In getStaticProps the Sanity Client fetches data from Sanity. 
 Open /Web/lib/queries.js. demoPageQuery uses GROQ to fetch data from Sanity
 
 ### Step 12. Deploy to vercel
+https://vercel.com/guides/deploying-nextjs-with-vercel
+
 - Go to Vercel account and click "New Project"
 - import the project from Github.
 - Skip "Create team"
