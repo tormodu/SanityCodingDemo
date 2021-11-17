@@ -21,7 +21,7 @@ When going through the init phase make sure to select **Yes** to the **Use the d
 
 Log into https://manage.sanity.io/ and choose the project you just created. Then from **Settings**, select **API**, then click **Add New Token** and create a token with the **Read** permission.
 
-### Step 4. Set up environment variables
+### Step 4. Set up environment variables in the web folder
 
 Copy the `.env.local.example` file in this directory to `.env.local` (which will be ignored by Git):
 
