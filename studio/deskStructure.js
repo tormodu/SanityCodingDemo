@@ -9,11 +9,9 @@ import Iframe from "sanity-plugin-iframe-pane";
 const hiddenDocTypes = (listItem) =>
   !["post", "author", "media.tag"].includes(listItem.getId());
 
-const postNode = (docId) =>
-  S.document()
-    .documentId(docId)
-
-    .views([
+  export const getDefaultDocumentNode = () => {
+    // Return all documents with just 1 view: the form
+    return S.document().views([
       S.view.form(),
       S.view
         .component(Iframe)
@@ -30,7 +28,9 @@ const postNode = (docId) =>
     url: (doc) => resolveProductionUrlSEO(doc),
   })
   .title('SEO')
-    ]);
+    ])
+  }
+
 export default () =>
   S.list()
     .title("Site")
@@ -39,12 +39,9 @@ export default () =>
         .title("Posts")
         .icon(MdChatBubble)
         .schemaType("post")
-        .child(
-          S.documentList("post")
-            .filter(`_type == "post"`)
-            .title("Posts")
-            .child(postNode)
-        ),
+        .child(S.documentTypeList("post").title("Posts"))
+        ,
+       
       S.listItem()
         .title("Authors")
         .icon(MdAccountCircle)

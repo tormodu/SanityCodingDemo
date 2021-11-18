@@ -1,6 +1,5 @@
 const postFields = `
   _id,
-  name,
   title,
   date,
   excerpt,

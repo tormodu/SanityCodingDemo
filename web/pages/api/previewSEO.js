@@ -29,7 +29,6 @@ export default async function preview(req, res) {
     const proto = process.env.NODE_ENV === 'development' ? `http://` : `https://`
     const host = req.headers.host
     const absoluteUrl = new URL(`${proto}${host}${pathname}`).toString()
-
     const previewHtml = await fetch(absoluteUrl, {
       credentials: `include`,
       headers: {Cookie: req.headers.cookie},
@@ -42,7 +41,7 @@ export default async function preview(req, res) {
 
   // Redirect to the path from the fetched post
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  res.writeHead(307, { Location: pathname })
+   res.writeHead(307, { Location: `/posts/${post.slug}` })
 
   res.end()
 }
