@@ -72,7 +72,7 @@ Next, select **Post** and create a new record.
 
 ```bash
 npm install
-npm run 
+npm run dev
 ```
 
 ### Step 7. Start building the Demo Page
